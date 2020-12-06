@@ -10,12 +10,17 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    public  $table="employee";
+   // public  $table="employee";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 
 
 
