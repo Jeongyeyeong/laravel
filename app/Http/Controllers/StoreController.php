@@ -24,7 +24,11 @@ class StoreController extends Controller
     }
     function viewData($id)
     {
-        $data=Store::find($id);
+
+        $data = DB::table('stores')
+            ->leftjoin('restaurants','stores.restaurant_id','=','restaurants.id')
+            ->select('stores.*','restaurants.name as restaurant_name')
+            ->find($id);
         return view('storeedit',['data'=>$data]);
     }
 }

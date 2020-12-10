@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class ArticlesController extends Controller
 {
@@ -11,10 +13,10 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return  __METHOD__. '은(는)Article 컬렉션을 조회합니다.';
-    }
+//    public function index()
+//    {
+//        return  __METHOD__. '은(는)Article 컬렉션을 조회합니다.';
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -32,53 +34,61 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        return  __METHOD__. '은(는) 사용자의 입력한 폼 데이터로 새로운 Article 컬렉션을 만듭니다.';
-    }
+//    public function store(Request $request)
+//    {
+//        return  __METHOD__. '은(는) 사용자의 입력한 폼 데이터로 새로운 Article 컬렉션을 만듭니다.';
+//    }
+//
+//    /**
+//     * Display the specified resource.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function show($id)
+//    {
+//        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.'. $id;
+//    }
+//
+//    /**
+//     * Show the form for editing the specified resource.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function edit($id)
+//    {
+//        return  __METHOD__. '은(는) 사용자의 입력한 폼 데이터로 다음 기본 키를 가진 Article 모델을 수정합니다.'. $id;
+//    }
+//
+//    /**
+//     * Update the specified resource in storage.
+//     *
+//     * @param  \Illuminate\Http\Request  $request
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function update(Request $request, $id)
+//    {
+//        return  __METHOD__. '은(는) 사용자의 입력한 폼 데이터로 다음 기본 키를 가진 Article 모델을 수정합니다'. $id;
+//    }
+//
+//    /**
+//     * Remove the specified resource from storage.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function destroy($id)
+//    {
+//        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 삭제합니다.'. $id;
+//    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public  function index()
     {
-        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.'. $id;
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return  __METHOD__. '은(는) 사용자의 입력한 폼 데이터로 다음 기본 키를 가진 Article 모델을 수정합니다.'. $id;
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        return  __METHOD__. '은(는) 사용자의 입력한 폼 데이터로 다음 기본 키를 가진 Article 모델을 수정합니다'. $id;
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 삭제합니다.'. $id;
+        //$articles = Article::get();
+        //$articles = Article::with('user')->get();
+        $articles= Article::latest()->paginate(3);
+        return view('articles.index', compact('articles'));
     }
 }
