@@ -9,8 +9,8 @@
             <input type="text"  name="restaurant_id" value="{{$data['restaurant_id']}}" class="form-control" placeholder="Enter name">
         </div>
         <div class="form-group">
-            <labe>name</labe>
-            <input type="text"  name="name" value="{{$data['name']}}" class="form-control" placeholder="Enter name">
+            <labe>Email</labe>
+            <input type="text"  name="name" value="{{$data['name']}}" class="form-control" placeholder="Enter email">
         </div>
 
 

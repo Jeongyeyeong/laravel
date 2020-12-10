@@ -20,7 +20,7 @@
     </div>
 
     @if($article->count())
-        <div class="text-center" >
+        <div class="d-flex justify-content-center">
             {!! $articles->render() !!}
         </div>
     @endif
