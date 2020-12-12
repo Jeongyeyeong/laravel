@@ -1,13 +1,20 @@
 @extends('layouts.layout')
 
 @section('content')
+    <script>
+        on
+    </script>
     <div class="container">
+        <button type="button" class="btn btn-primary" style="float: right; margin-top: 10px;"><a href="/add"> 추가</a></button>
         <h1>포럼 글 목록</h1>
+
         <hr/>
+
         <ul>
             @forelse($articles as $article)
                 <li>
-                    {{$article->title }}
+                    <a href="/articlesedit/{{$article->id}}">{{$article->title }}</a>
+
                     <small>
                         by {{$article->user->name}}
                     </small>

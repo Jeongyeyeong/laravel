@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use App\Models\User;
 
 class ArticlesController extends Controller
 {
@@ -23,10 +24,10 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return  __METHOD__. '은(는)Article 만들기 위한 폼을 담은 뷰를 반환합니다.';
-    }
+//    public function create()
+//    {
+//        return  __METHOD__. '은(는)Article 만들기 위한 폼을 담은 뷰를 반환합니다.';
+//    }
 
     /**
      * Store a newly created resource in storage.
@@ -90,5 +91,43 @@ class ArticlesController extends Controller
         //$articles = Article::with('user')->get();
         $articles= Article::latest()->paginate(3);
         return view('articles.index', compact('articles'));
+    }
+
+    public function  add()
+    {
+        $articles=Article::get();
+        $users=User::get();
+
+
+
+
+
+
+
+        return view('articles.articleseadd',compact('articles','users'));
+
+    }
+    public function  add2(Request $req)
+    {
+
+
+
+        $flan = new Article();
+        $flan ->user_id= $req->user_id;
+        $flan ->title = $req->title;
+        $flan->content=$req->content;
+        $flan->save();
+
+
+
+
+
+
+        return  redirect('list');
+    }
+    function viewData($id)
+    {
+        $data=Article::find($id);
+        return view('articles.articlesedit',['data'=>$data]);
     }
 }

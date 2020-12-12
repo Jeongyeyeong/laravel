@@ -14,7 +14,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StunController;
 use App\Http\Controllers\RestoController;
 use App\Http\Controllers\StoreController;
-
+use App\Http\Controllers\ArticlesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -122,7 +122,16 @@ Route::get('/search',[RestoController::class,'search']);
 Route::get('storelist',[StoreController::class,'list']);
 Route::get('storeedit/{id}',[StoreController::class,'viewData']);
 
+
+
+#test
 Route::resource('articles','App\Http\Controllers\ArticlesController');
+Route::get('articlesedit/{id}',[ArticlesController::class,'viewData']);
+Route::get('add',[ArticlesController::class,'add']);
+Route::post('add',[ArticlesController::class,'add2']);
+
+
+
 
 
 

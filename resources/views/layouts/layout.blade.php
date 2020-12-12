@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Resto</a>
+    <a class="navbar-brand" href="/">Study</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,6 +36,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/articles">articlesList</a>
             </li>
            {{-- <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
