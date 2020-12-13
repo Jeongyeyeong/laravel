@@ -6,6 +6,8 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\ArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -123,11 +125,52 @@ class ArticlesController extends Controller
 
 
 
-        return  redirect('list');
+        return  redirect('articles');
     }
     function viewData($id)
     {
         $data=Article::find($id);
         return view('articles.articlesedit',['data'=>$data]);
+    }
+    public function create()
+    {
+        $articles=Article::get();
+        $users=User::get();
+
+        return view('articles.create',compact('articles','users'));
+    }
+
+    public function store(\App\Http\Requests\ArticleRequest $req)
+    {
+//        $rules = [
+//            'user_id'=>['required'],
+//            'title' => ['required'],
+//            'content' => ['required', 'min:10'],
+//            ];
+//
+//        $messages = [
+//            'user_id.required' => '이름은 필수 입력 항목입니다.',
+//            'title.required' => '제목은 필수 입력 항목입니다.',
+//            'content.required' => '본문은 필수 입력입니다.',
+//        ];
+//
+//        $validator = validator::make($req->all(), $rules, $messages);
+//
+//        if( $validator -> fails()) {
+//            return back()->withErrors($validator)
+//                ->withInput();
+//        }
+
+        $article = User::find(1)->articles()
+            ->create($req->all());
+
+        if( !$article) {
+            return back()->with('flash_message', '글이 저장되지 않았습니다')
+                        ->withInput();
+        }
+
+        return redirect(route('articles.index'))
+                ->with('flash_message', '작성하신 글이 저장되었습니다.');
+
     }
 }

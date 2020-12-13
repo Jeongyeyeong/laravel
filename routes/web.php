@@ -128,7 +128,9 @@ Route::get('storeedit/{id}',[StoreController::class,'viewData']);
 Route::resource('articles','App\Http\Controllers\ArticlesController');
 Route::get('articlesedit/{id}',[ArticlesController::class,'viewData']);
 Route::get('add',[ArticlesController::class,'add']);
-Route::post('add',[ArticlesController::class,'add2']);
+Route::post('add2',[ArticlesController::class,'add2']);
+Route::get('create',[ArticlesController::class,'create']); #유효성 검사 test
+
 
 
 

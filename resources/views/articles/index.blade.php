@@ -5,7 +5,7 @@
         on
     </script>
     <div class="container">
-        <button type="button" class="btn btn-primary" style="float: right; margin-top: 10px;"><a href="/add"> 추가</a></button>
+        <button type="button" class="btn btn-primary" style="float: right; margin-top: 10px;"><a href="/create"> 추가</a></button>
         <h1>포럼 글 목록</h1>
 
         <hr/>
