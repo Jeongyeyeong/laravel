@@ -48,10 +48,12 @@ class ArticlesController extends Controller
 //     * @param  int  $id
 //     * @return \Illuminate\Http\Response
 //     */
-//    public function show($id)
-//    {
-//        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.'. $id;
-//    }
+    public function show($id)
+    {
+        echo $foo;
+
+        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.'. $id;
+    }
 //
 //    /**
 //     * Show the form for editing the specified resource.
@@ -89,8 +91,8 @@ class ArticlesController extends Controller
 
     public  function index()
     {
-        //$articles = Article::get();
-        //$articles = Article::with('user')->get();
+//        $articles = Article::get();
+//        $articles = Article::with('user')->get();
         $articles= Article::latest()->paginate(3);
         return view('articles.index', compact('articles'));
     }
@@ -169,8 +171,15 @@ class ArticlesController extends Controller
                         ->withInput();
         }
 
-        return redirect(route('articles.index'))
-                ->with('flash_message', '작성하신 글이 저장되었습니다.');
+//        var_dump('이벤트를 던집니다.');
+//        event('article.created',[$article]);
+//        var_dump('이벤트를 던졌습니다');
+
+//        return redirect(route('articles.index'))
+//                ->with('flash_message', '작성하신 글이 저장되었습니다.');
+
+        event(new \App\Events\ArticlesEvent($article));
+        return redirect(route('articles.index')) ->with('flash_message', '작성하신 글이 저장되었습니다');
 
     }
 }

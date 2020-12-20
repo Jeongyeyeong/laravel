@@ -16,11 +16,18 @@ class User extends Authenticatable
      *
      * @var array
      */
-
+    protected $dates = ['last_login'];
     public function articles()
     {
         return $this->hasMany(Article::class);
     }
+
+    protected $fillable= [
+        'name', 'email', 'password',
+    ];
+    protected $hidden = [
+        'password','rememver_token',
+    ];
 
 
 

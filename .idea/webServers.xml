@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="3f571ba0-9992-4257-ac84-825952e02ce4" name="marcov2" url="http://newdev.baristamarco.com">
-        <fileTransfer rootFolder="/root" accessType="SFTP" host="newdev.baristamarco.com" port="55222" sshConfigId="9eadbce4-3558-45a2-a828-74f4783998ca" sshConfig="marcov2@newdev.baristamarco.com:55222 password">
+      <webServer id="da8ec367-54dc-4977-bc7f-33728b98154f" name="marcov2" url="http://newdev.baristamarco.com">
+        <fileTransfer rootFolder="/home/marcov2/" accessType="SFTP" host="newdev.baristamarco.com" port="55222" sshConfigId="9eadbce4-3558-45a2-a828-74f4783998ca" sshConfig="marcov2@newdev.baristamarco.com:55222 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

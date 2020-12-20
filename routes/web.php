@@ -131,6 +131,12 @@ Route::get('add',[ArticlesController::class,'add']);
 Route::post('add2',[ArticlesController::class,'add2']);
 Route::get('create',[ArticlesController::class,'create']); #유효성 검사 test
 
+#이벤트 시스템
+//Event::listen('article.created', function ($article) {
+//    var_dump('이벤트를 받았습니다.  받은 데이터(상태)는 다음과같습니다');
+//    var_dump($article->toArray());
+//});
+
 
 
 
