@@ -50,9 +50,10 @@ class ArticlesController extends Controller
 //     */
     public function show($id)
     {
-        echo $foo;
+        $article = Article::findOrfail($id);
+        return $article->toArray();
 
-        return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.'. $id;
+       // return  __METHOD__. '은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.'. $id;
     }
 //
 //    /**
@@ -94,6 +95,7 @@ class ArticlesController extends Controller
 //        $articles = Article::get();
 //        $articles = Article::with('user')->get();
         $articles= Article::latest()->paginate(3);
+        #dd(view('articles.index',compact('articles'))->render()); #html 코드를 출력해주는 기능
         return view('articles.index', compact('articles'));
     }
 
@@ -131,8 +133,12 @@ class ArticlesController extends Controller
     }
     function viewData($id)
     {
+
         $data=Article::find($id);
         return view('articles.articlesedit',['data'=>$data]);
+        $article = Article::findOrfail($id);
+        dd($article);
+        return $article->toArray();
     }
     public function create()
     {
