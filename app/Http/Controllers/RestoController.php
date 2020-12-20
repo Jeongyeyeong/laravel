@@ -54,5 +54,22 @@ class RestoController extends Controller
        $data = Restaurant::where('name','like','%'.$search.'%')->orderby('name',
        'asc')->simplepaginate(5);
         return view('restolist',["data"=>$data]);
+
+    }
+
+     function autocomplete(Request $req)
+    {
+        $term = $req->get('term');
+        $datas= Restaurant::where('name','like','%'.$term.'%')->get();
+        $names = array();
+        foreach ($datas as $data){
+            array_push($names, $data['name']);
+        }
+        return response()->json($names);
+
+//        $data = Restaurant::select("name")
+//            ->where("name","LIKE","%{$req->terms}%")
+//            ->get();
+//        return response()->json($data);
     }
 }

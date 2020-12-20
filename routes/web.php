@@ -137,7 +137,7 @@ Route::get('create',[ArticlesController::class,'create']); #유효성 검사 tes
 //    var_dump($article->toArray());
 //});
 
-
+Route::get('/autocomplete',[RestoController::class,'autocomplete'])->name('autocomplete');
 
 
 

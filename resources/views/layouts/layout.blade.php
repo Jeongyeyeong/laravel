@@ -9,6 +9,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
+{{--    <script>--}}
+{{--        --}}{{--var path="{{route('autocomplete')}}";--}}
+{{--        --}}{{--$('input.typeahead').typeahead({--}}
+{{--        --}}{{--    source: function (turms,process){--}}
+{{--        --}}{{--        return $.get(path,{turms:turms},function(data){--}}
+{{--        --}}{{--            return process(data);--}}
+{{--        --}}{{--        });--}}
+{{--        --}}{{--    }--}}
+{{--        --}}{{--});--}}
+     <script>
+        $(document).ready(function () {
+            $("#keyword").autocomplete({
+                source: "{{route('autocomplete')}}",
+            });
+        });
+    </script>
+    <link rel="stylesheet" hrf="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>--}}
+{{--    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>--}}
+
 
 </head>
 <body>

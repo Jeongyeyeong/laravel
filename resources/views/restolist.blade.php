@@ -1,4 +1,5 @@
-<link rel="stylesheet" hrf="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
 
 @extends('layouts.layout')
 
@@ -15,9 +16,9 @@
 
     <form class="form-inline"  action="/search"  method="GET" style="float: right;">
     @csrf
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="inputPassword2" class="sr-only">Search</label>
-            <input type="text" name="text1" class="form-control">
+        <div class=" form-group mx-sm-3 mb-2">
+            <label for="" class="sr-only">Search</label>
+            <input type="text" name="text1" id="keyword"  class="form-control ">
 
         </div>
         <button  class="btn btn-primary mb-2" type="submit" >검색</button>
@@ -58,6 +59,7 @@
 
 
 @endsection
+
 
 
 
