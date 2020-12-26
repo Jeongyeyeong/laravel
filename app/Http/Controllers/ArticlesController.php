@@ -134,6 +134,7 @@ class ArticlesController extends Controller
     function viewData($id)
     {
 
+
         $data=Article::find($id);
         return view('articles.articlesedit',['data'=>$data]);
         $article = Article::findOrfail($id);

@@ -139,6 +139,20 @@ Route::get('create',[ArticlesController::class,'create']); #유효성 검사 tes
 
 Route::get('/autocomplete',[RestoController::class,'autocomplete'])->name('autocomplete');
 
+Route::get('mail',function ()
+{
+    $article = App\Models\Article::with('user')->find(4);
+
+    return Mail::send(
+        'emails.articles.created',
+        compact('article'),
+        function ($message) use ($article) {
+            $message->to('rpdud10@naver.com');
+            $message->subject($article->title);
+        }
+    );
+});
+
 
 
 

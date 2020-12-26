@@ -14,7 +14,11 @@
         </div>
 
 
-
+{{--        @if($data['id']==$data['user_id'])--}}
+{{--        <button type="submit" class="btn btn-primary">Submit</button>--}}
+{{--        @else--}}
+{{--            <button type="submit" class="btn btn-primary">Submasdasdasdasadit</button>--}}
+{{--            @endif--}}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 @endsection
